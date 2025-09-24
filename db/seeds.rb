@@ -14,7 +14,6 @@
 
 puts "🧹 Limpiando datos antiguos..."
 Patient.destroy_all
-User.destroy_all
 
 user = User.create!(
   email: "test@example.com",
