@@ -46,12 +46,6 @@
     font-family: 'Montserrat', sans-serif;
   }
   
-  .auth-subtitle {
-    color: #6c757d;
-    font-size: 1rem;
-    margin-bottom: 0;
-    font-weight: 400;
-  }
 }
 
 // Formulario
@@ -118,6 +112,53 @@
           background: #fff5f5;
         }
       }
+      
+      // Checkbox group styles
+      &.checkbox-group {
+        margin-bottom: 1.5rem;
+        padding-left: 0;
+        
+        .form-check {
+          display: flex;
+          align-items: center;
+          
+          .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin-right: 0.5rem;
+            margin-top: 0;
+            border: 2px solid #e9ecef;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            
+            &:checked {
+              background-color: #28a745;
+              border-color: #28a745;
+              
+              &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+              }
+            }
+            
+            &:focus {
+              border-color: #28a745;
+              box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+            }
+          }
+          
+          .form-check-label {
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-bottom: 0;
+            user-select: none;
+            line-height: 1;
+          }
+        }
+      }
     }
   }
   
@@ -157,30 +198,6 @@
   }
 }
 
-// Divider
-.auth-divider {
-  text-align: center;
-  margin: 2rem 0;
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: #e9ecef;
-  }
-  
-  span {
-    background: white;
-    padding: 0 1.5rem;
-    color: #6c757d;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-}
 
 // Links de navegación
 .auth-links {

@@ -62,14 +62,14 @@
     // border-color: #e55a2b;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 15px rgba(14, 138, 65, 0.3);
   }
   
   &:focus, &:active {
-    background-color: #d4501f;
-    border-color: #d4501f;
+    background-color: #1fd42e;
+    // border-color: #d4501f;
     color: white;
-    box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(14, 138, 65, 0.5);
   }
 }
 

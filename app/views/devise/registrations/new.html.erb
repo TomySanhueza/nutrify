@@ -18,7 +18,7 @@
         <%= f.input :password,
                     required: true,
                     label: "Password",
-                    placeholder: "Mínimo 6 caracteres",
+                    placeholder: "**********",
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     wrapper_html: { class: "form-group" },
                     input_html: { autocomplete: "new-password", class: "form-control-custom" } %>
