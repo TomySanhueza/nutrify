@@ -1,0 +1,13 @@
+<h1>Paciente: <%= @patient.first_name %></h1>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>first_name:</strong> <%= @patient.first_name %></li>
+  <li class="list-group-item"><strong>last_name:</strong> <%= @patient.last_name %></li>
+  <li class="list-group-item"><strong>birthday:</strong> <%= @patient.birthday %></li>
+  <li class="list-group-item"><strong>height:</strong> <%= @patient.height %></li>
+  <li class="list-group-item"><strong>weight:</strong> <%= @patient.weight %></li>
+  <li class="list-group-item"><strong>nutrition_plan:</strong> <%= @patient.nutrition_plan %></li>
+  <li class="list-group-item"><strong>clinical_history:</strong> <%= @patient.clinical_history %></li>
+</ul>
+
+<%= link_to "Volver", patients_path, class: "btn btn-secondary mt-3" %>
