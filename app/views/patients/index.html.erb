@@ -1,4 +1,7 @@
-<h1>Lista de Pacientes</h1>
+<div class="container mt-4 d-flex justify-content-between">
+  <h1>Lista de Pacientes</h1>
+  <%= link_to "Nuevo Paciente", new_patient_path, class: "btn btn-success mb-3" %>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -13,6 +16,7 @@
         <td><%= patient.first_name %></td>
         <td><%= patient.last_name %></td>
         <td><%= link_to "Ver", patient_path(patient), class: "btn btn-primary btn-sm" %></td>
+        <td><%= link_to "Editar", edit_patient_path(patient), class: "btn btn-warning btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
