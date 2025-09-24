@@ -1,1 +1,211 @@
 // Specific CSS for your home-page
+
+// Hero Section
+.hero-section {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  
+  &.hero-bg {
+    // Imagen de fondo con overlay
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(40, 167, 69, 0.3)),
+      url('https://i.postimg.cc/6p4kzbpL/Sin-tsdasd-tulo-1.png');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  
+  .text-primary {
+    color: #5C8A53 !important;
+  }
+  
+  .text-success {
+    color: #355e3b !important;
+    font-size: 2rem;
+  }
+}
+
+.nutrify-logo {
+  height: 90px;
+  filter: brightness(1.2);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+
+.btn-custom {
+  background-color: #21703E;
+  // border-color: #ff6b35;
+  color: white;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #304C2D;
+    // border-color: #e55a2b;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(14, 138, 65, 0.3);
+  }
+  
+  &:focus, &:active {
+    background-color: #1fd42e;
+    // border-color: #d4501f;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(14, 138, 65, 0.5);
+  }
+}
+
+.hero-visual {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Features Section
+.features-section {
+  padding: 5rem 0;
+  
+  .feature-card {
+    height: 100%;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .feature-icon {
+    transition: transform 0.3s ease;
+    
+    i {
+      transition: color 0.3s ease;
+    }
+  }
+  
+  .feature-card:hover .feature-icon {
+    transform: scale(1.1);
+  }
+}
+
+// CTA Section
+.cta-section {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  
+  .btn-light {
+    transition: all 0.3s ease;
+    
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem !important;
+    
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  .hero-visual {
+    margin-top: 2rem;
+    height: 200px !important;
+    
+    i {
+      font-size: 3rem !important;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+// Smooth animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title,
+.hero-description,
+.hero-buttons {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
+  animation-delay: 0.1s;
+}
+
+.hero-description {
+  animation-delay: 0.2s;
+}
+
+.hero-buttons {
+  animation-delay: 0.3s;
+}
+
+// Footer Section
+.footer-section {
+  height: 6vh; // Incrementado 2vh (de 20vh a 22vh)
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dee2e6;
+  
+  p {
+    font-size: 0.9rem;
+  }
+}
