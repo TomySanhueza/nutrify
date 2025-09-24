@@ -1,0 +1,8 @@
+<h1>New Chat for <%= @patient.name %></h1>
+
+<%= simple_form_for([@patient, @chat]) do |f| %>
+    <%= f.input :title %>
+    <%= f.submit "Create Chat" %>
+<% end %>
+
+<%= link_to "Back", patient_chats_path(@patient) %>
