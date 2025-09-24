@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Hero Section -->
+<div class="hero-section hero-bg">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h1 class="hero-title mb-2">
+          <img src="https://i.postimg.cc/L82wS495/nutri-fy.png" alt="Nutrify" class="nutrify-logo mb-1"><br>
+          <span class="text-white">Tu asistente nutricional</span>
+        </h1>
+        <p class="hero-description lead mb-3 text-white">
+          Gestiona tus pacientes, crea planes nutricionales personalizados y haz seguimiento del progreso de manera eficiente.
+        </p>
+        <div class="hero-buttons d-flex gap-3">
+          <% if user_signed_in? %>
+            <%= link_to "Ir a Pacientes", patients_path, class: "btn btn-light btn-lg" %>
+          <% else %>
+            <%= link_to "Comenzar", new_user_registration_path, class: "btn btn-custom" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0 text-muted">
+          &copy; <%= Date.current.year %> Nutrify
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0 text-muted">
+          <span>Made in Mexico</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

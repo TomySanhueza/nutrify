@@ -1,6 +1,14 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   
+  def index
+    @patients = Patient.all
+  end
+
+  def show
+    @patient = Patient.find(params[:id])
+  end
+  
   def new
     @patient = Patient.new
   end
@@ -20,6 +28,5 @@ class PatientsController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(:first_name, :last_name, :birthday, :weight, :height, :nutrition_plan, :clinical_history)
-  end
-
+  end 
 end
