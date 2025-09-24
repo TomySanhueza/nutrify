@@ -1,4 +1,4 @@
-<h1>New Chat for <%= @patient.name %></h1>
+<h1>New Chat for <%= @patient.first_name %></h1>
 
 <%= simple_form_for([@patient, @chat]) do |f| %>
     <%= f.input :title %>
