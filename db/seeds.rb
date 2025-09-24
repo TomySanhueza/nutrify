@@ -16,7 +16,7 @@ puts "🧹 Limpiando datos antiguos..."
 Patient.destroy_all
 
 user = User.create!(
-  email: "tomy@example.com",
+  email: "test@example.com",
   password: "password123",
   password_confirmation: "password123"
 )
