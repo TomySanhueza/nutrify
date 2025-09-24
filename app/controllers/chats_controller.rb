@@ -14,9 +14,11 @@ class ChatsController < ApplicationController
   end
   
   def create
-    @chat = @patient.chats.new(chat_params)
+    @chat = Chat.new(chat_params)
+    @chat.patient = @patient
+    @chat.user = current_user
     if @chat.save
-      redirect_to patient_chat_path(@patient, @chat), notice: "Chat creado con éxito."
+      redirect_to patient_chats_path(@patient), notice: "Chat creado con éxito."
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,6 +40,6 @@ class ChatsController < ApplicationController
   end
 
   def chat_params
-    params.require(:chat).permit(:title, :content)
+    params.require(:chat).permit(:title)
   end
 end
