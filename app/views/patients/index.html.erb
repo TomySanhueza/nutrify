@@ -1,19 +1,30 @@
-<h1>Lista de Pacientes</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.first_name %></td>
-        <td><%= patient.last_name %></td>
-        <td><%= link_to "Ver", patient_path(patient), class: "btn btn-primary btn-sm" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="patients-container">
+  <div class="patients-card">
+    <div class="patients-header">
+      <h1>Lista de Pacientes</h1>
+    </div>
+    
+    <div class="patients-table-wrapper">
+      <table class="patients-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @patients.each do |patient| %>
+            <tr>
+              <td><%= patient.first_name %></td>
+              <td><%= patient.last_name %></td>
+              <td>
+                <%= link_to "Ver", patient_path(patient), class: "btn-view" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
