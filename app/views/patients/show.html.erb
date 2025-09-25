@@ -1,5 +1,6 @@
 <div class="container mt-4 d-flex justify-content-between">
   <h1>Paciente: <%= @patient.first_name %> <%= @patient.last_name %></h1>
+  <%= link_to "Hablar con Asistente de IA", new_patient_chat_path(@patient), class: "btn btn-primary mt-3" %>
   <%= link_to "Volver a lista", patients_path, class: "btn btn-success mt-3" %>
 </div>
 
@@ -15,4 +16,4 @@
   </ul>
   <%= link_to "Editar paciente", edit_patient_path(@patient), class: "btn btn-primary mt-3" %>
   <%= link_to "Eliminar paciente", patient_path(@patient), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro?" }, class: "btn btn-danger mt-3" %>
-
+</div>
