@@ -1,19 +1,49 @@
-<div class="container mt-4 d-flex justify-content-between">
-  <h1>Paciente: <%= @patient.first_name %> <%= @patient.last_name %></h1>
-  <%= link_to "Hablar con Asistente de IA", new_patient_chat_path(@patient), class: "btn btn-primary mt-3" %>
-  <%= link_to "Volver a lista", patients_path, class: "btn btn-success mt-3" %>
-</div>
+<div class="patient-show-page">
+  <div class="patient-header">
+    <h1>Paciente: <%= @patient.first_name %> <%= @patient.last_name %></h1>
+    <div class="header-buttons">
+      <%= link_to "Hablar con Asistente de IA", new_patient_chat_path(@patient), class: "btn btn-primary mt-3" %>
+      <%= link_to "Volver a lista", patients_path, class: "btn-volver-lista" %>
+    </div>
+  </div>
 
-<div class="container mt-4">
-  <ul class="list-group">
-    <li class="list-group-item"><strong>first_name:</strong> <%= @patient.first_name %></li>
-    <li class="list-group-item"><strong>last_name:</strong> <%= @patient.last_name %></li>
-    <li class="list-group-item"><strong>birthday:</strong> <%= @patient.birthday %></li>
-    <li class="list-group-item"><strong>height:</strong> <%= @patient.height %></li>
-    <li class="list-group-item"><strong>weight:</strong> <%= @patient.weight %></li>
-    <li class="list-group-item"><strong>nutrition_plan:</strong> <%= @patient.nutrition_plan %></li>
-    <li class="list-group-item"><strong>clinical_history:</strong> <%= @patient.clinical_history %></li>
-  </ul>
-  <%= link_to "Editar paciente", edit_patient_path(@patient), class: "btn btn-primary mt-3" %>
-  <%= link_to "Eliminar paciente", patient_path(@patient), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro?" }, class: "btn btn-danger mt-3" %>
+  <div class="patient-details-card">
+    <div class="patient-info">
+      <div class="info-item">
+        <span class="info-label">first_name:</span>
+        <span class="info-value"><%= @patient.first_name %></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">last_name:</span>
+        <span class="info-value"><%= @patient.last_name %></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">birthday:</span>
+        <span class="info-value"><%= @patient.birthday %></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">height:</span>
+        <span class="info-value"><%= @patient.height %></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">weight:</span>
+        <span class="info-value"><%= @patient.weight %></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">nutrition_plan:</span>
+        <span class="info-value"><%= @patient.nutrition_plan %></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">clinical_history:</span>
+        <span class="info-value"><%= @patient.clinical_history %></span>
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <%= link_to "Editar paciente", edit_patient_path(@patient), class: "btn-editar-paciente" %>
+      <%= link_to "Eliminar paciente", patient_path(@patient), 
+          data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro?" }, 
+          class: "btn-eliminar-paciente" %>
+    </div>
+  </div>
 </div>
