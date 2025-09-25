@@ -7,6 +7,8 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @messages = @chat.messages.order(created_at: :asc)
+    @message = Message.new
   end
 
   def new
@@ -18,7 +20,7 @@ class ChatsController < ApplicationController
     @chat.patient = @patient
     @chat.user = current_user
     if @chat.save
-      redirect_to patient_chats_path(@patient), notice: "Chat creado con éxito."
+      redirect_to patient_chats_path(@patient, @chat), notice: "Chat creado con éxito."
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +28,7 @@ class ChatsController < ApplicationController
 
   def destroy
     @chat.destroy
-    redirect_to patient_chats_path(@patient), notice: "Chat eliminado con éxito."
+    redirect_to patient_chats_path(@patient, @chat), notice: "Chat eliminado con éxito."
   end
 
   private
