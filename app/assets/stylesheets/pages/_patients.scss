@@ -1,83 +1,95 @@
-// Patients List Styles
+// Lista de Pacientes Styles
 
-// Container principal - similar al auth-container
-.patients-container {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  min-height: 80vh;
-  padding: 2rem 1rem;
+.patients-page {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
-// Tarjeta principal - similar al auth-card
-.patients-card {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  padding: 2.5rem;
-  margin: 0 auto;
-  max-width: 900px;
-  border: none;
-}
-
-// Header de la página
 .patients-header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
   
   h1 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
     font-size: 2.5rem;
+    font-weight: 600;
     color: #2c3e50;
-    margin-bottom: 0.5rem;
+    margin: 0;
   }
 }
 
-// Wrapper de la tabla
-.patients-table-wrapper {
-  overflow-x: auto;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+.btn-nuevo-paciente {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
+    color: white;
+    text-decoration: none;
+  }
 }
 
-// Estilos de la tabla
+.patients-table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 .patients-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  margin: 0;
   
   thead {
-    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-    
-    th {
-      padding: 1.2rem 1.5rem;
-      text-align: left;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border: none;
+    tr {
+      background: #f8f9fa;
+      border-bottom: 1px solid #e9ecef;
       
-      &:first-child {
-        border-top-left-radius: 15px;
-      }
-      
-      &:last-child {
-        border-top-right-radius: 15px;
-        text-align: center;
+      th {
+        padding: 1rem 1.5rem;
+        text-align: left;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #495057;
+        border: none;
+        
+        &:nth-child(3), &:nth-child(4) {
+          text-align: center;
+        }
       }
     }
   }
   
   tbody {
     tr {
-      transition: all 0.3s ease;
       border-bottom: 1px solid #f1f3f4;
+      transition: background-color 0.2s ease;
+      
+      &:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+      
+      &:nth-child(odd) {
+        background-color: white;
+      }
       
       &:hover {
-        background-color: #f8f9ff;
-        transform: translateY(-1px);
+        background-color: #e3f2fd;
       }
       
       &:last-child {
@@ -85,13 +97,14 @@
       }
       
       td {
-        padding: 1.2rem 1.5rem;
+        padding: 1rem 1.5rem;
         font-family: 'Montserrat', sans-serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         color: #2c3e50;
         vertical-align: middle;
+        border: none;
         
-        &:last-child {
+        &:nth-child(3), &:nth-child(4) {
           text-align: center;
         }
       }
@@ -99,65 +112,74 @@
   }
 }
 
-// Botón Ver - similar al btn-auth
-.btn-view {
-  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+.btn-ver {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   color: white;
+  padding: 0.4rem 1rem;
   border: none;
-  border-radius: 25px;
-  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 0.85rem;
+  font-weight: 500;
+  font-size: 0.8rem;
   text-decoration: none;
-  display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
     color: white;
     text-decoration: none;
   }
+}
+
+.btn-editar {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
   
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.4);
+    color: white;
+    text-decoration: none;
   }
 }
 
 // Responsive design
 @media (max-width: 768px) {
-  .patients-container {
-    padding: 1rem 0.5rem;
+  .patients-page {
+    padding: 1rem;
   }
   
-  .patients-card {
-    padding: 1.5rem;
-    border-radius: 15px;
-  }
-  
-  .patients-header h1 {
-    font-size: 2rem;
+  .patients-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    
+    h1 {
+      font-size: 2rem;
+    }
   }
   
   .patients-table {
-    thead th {
-      padding: 1rem 0.8rem;
-      font-size: 0.8rem;
-    }
-    
+    thead th,
     tbody td {
-      padding: 1rem 0.8rem;
-      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
     }
   }
   
-  .btn-view {
-    padding: 0.4rem 0.8rem;
+  .btn-ver, .btn-editar {
+    padding: 0.3rem 0.8rem;
     font-size: 0.75rem;
   }
 }
@@ -168,12 +190,466 @@
   }
   
   .patients-table {
-    thead th {
-      padding: 0.8rem 0.6rem;
-    }
-    
+    thead th,
     tbody td {
-      padding: 0.8rem 0.6rem;
+      padding: 0.5rem 0.75rem;
     }
   }
+}
+
+// Página de detalle del paciente
+.patient-show-page {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.patient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.btn-asistente-ia {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-volver-lista {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.patient-details-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.patient-info {
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f1f3f4;
+  
+  &:first-child {
+    border-top: 1px solid #f1f3f4;
+  }
+  
+  .info-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 180px;
+    font-size: 0.9rem;
+  }
+  
+  .info-value {
+    font-family: 'Montserrat', sans-serif;
+    color: #495057;
+    font-size: 0.9rem;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f3f4;
+}
+
+.btn-editar-paciente {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-eliminar-paciente {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// Responsive para página de detalle
+@media (max-width: 768px) {
+  .patient-show-page {
+    padding: 1rem;
+  }
+  
+  .patient-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+    
+    .header-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  
+  .patient-details-card {
+    padding: 1.5rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    padding: 1rem;
+    
+    .info-label {
+      min-width: auto;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .patient-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .info-item {
+    padding: 0.75rem;
+  }
+}
+
+// Página de edición/creación de paciente
+.patient-edit-page {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.edit-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+  }
+}
+
+.edit-form-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.patient-form {
+  .form-errors {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid #f5c6cb;
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      
+      li {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+.form-row {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  
+  &:first-of-type {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  &:nth-of-type(2) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-full {
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #42502c;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  }
+  
+  &:hover {
+    border-color: #cbd5e0;
+  }
+}
+
+.form-textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 80px;
+  
+  &:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  }
+  
+  &:hover {
+    border-color: #cbd5e0;
+  }
+}
+
+.form-textarea-large {
+  min-height: 120px;
+  height: 120px;
+}
+
+.form-textarea-small {
+  min-height: 65px;
+  height: 65px;
+}
+
+.form-textarea-wide {
+  width: 100%;
+  max-width: calc(100vw - 8rem);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  margin-top: 0,5rem;
+}
+
+.btn-cancelar {
+  background: #6c757d;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-actualizar {
+  background: #3498db;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background: #1f6396;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// Responsive para formularios
+@media (max-width: 768px) {
+  .patient-edit-page {
+    padding: 1rem;
+  }
+  
+  .edit-form-container {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  
+  .edit-header h1 {
+    font-size: 2rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    
+    &:first-of-type,
+    &:nth-of-type(2) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    
+    .btn-cancelar,
+    .btn-actualizar {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .edit-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .edit-form-container {
+    padding: 1.5rem;
+  }
+}
+
+.form-title-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
 }

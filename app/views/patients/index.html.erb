@@ -1,23 +1,29 @@
-<div class="container mt-4 d-flex justify-content-between">
-  <h1>Lista de Pacientes</h1>
-  <%= link_to "Nuevo Paciente", new_patient_path, class: "btn btn-success mb-3" %>
-</div>
+<div class="patients-page">
+  <div class="patients-header">
+    <h1>Lista de Pacientes</h1>
+    <%= link_to "Nuevo Paciente", new_patient_path, class: "btn-nuevo-paciente" %>
+  </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.first_name %></td>
-        <td><%= patient.last_name %></td>
-        <td><%= link_to "Ver", patient_path(patient), class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to "Editar", edit_patient_path(patient), class: "btn btn-warning btn-sm" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="patients-table-container">
+    <table class="patients-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @patients.each do |patient| %>
+          <tr>
+            <td><%= patient.first_name %></td>
+            <td><%= patient.last_name %></td>
+            <td><%= link_to "Ver", patient_path(patient), class: "btn-ver" %></td>
+            <td><%= link_to "Editar", edit_patient_path(patient), class: "btn-editar" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
