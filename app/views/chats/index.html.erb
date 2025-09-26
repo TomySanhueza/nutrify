@@ -1,12 +1,16 @@
-<h1>Chats for <%= @patient.first_name %></h1>
+<div class="chats-page">
+  <h1 class="chats-title">Chats for <%= @patient.first_name %></h1>
 
-<ul>
-  <% @chats.each do |chat| %>
-    <li>
-      <%= link_to chat.title, patient_chats_path(@patient) %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="chats-list">
+    <% @chats.each do |chat| %>
+      <li class="chat-item">
+        <%= link_to chat.title, patient_chats_path(@patient), class: "chat-link" %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to "New Chat", new_patient_chat_path(@patient) %> |
-<%= link_to "Back to Patients", patients_path %>
+  <div class="chats-navigation">
+    <%= link_to "New Chat", new_patient_chat_path(@patient), class: "btn-primary" %>
+    <%= link_to "Back to Patients", patients_path, class: "btn-secondary" %>
+  </div>
+</div>
