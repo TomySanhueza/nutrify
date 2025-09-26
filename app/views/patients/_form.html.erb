@@ -1,5 +1,4 @@
 <%= form_with(model: patient, local: true, class: "patient-form") do |f| %>
-  <h2 class="form-title form-title-bold">Editar paciente</h2>
   <% if patient.errors.any? %>
     <div class="form-errors">
       <h4>Hay <%= patient.errors.count %> errores:</h4>
