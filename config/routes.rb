@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   devise_for :users
   root to: "pages#home"
-  resources :patients do 
-    resources :chats, only: [:create, :new, :index]
+  resources :patients do
+    resources :chats, only: [:index, :new, :create, :show, :destroy] do
+      resources :messages, only: [:create]
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
