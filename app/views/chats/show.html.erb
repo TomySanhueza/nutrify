@@ -1,11 +1,29 @@
-<div class="chat-form-container mt-4">
+<%= turbo_frame_tag "chat" do %>
+<div class="container mt-4">
   <h1 class="chats-title mb-4"><%= @chat.title %></h1>
-  <div class="chat-form">
+
+  <% @chat.messages.each do |message| %>
+    <% if message.role == "user" %>
+      <div class="d-flex justify-content-end mb-2"> 
+        <div class="bg-white rounded-pill px-3 pt-2 pb-2"> 
+          <%= message.content %>
+        </div>
+      </div>
+    <% else %>  
+      <div> 
+        <div> 
+          <%= raw(render_markdown(message.content)) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <div>
     <%= simple_form_for [@chat, Message.new] do |f| %>
       <div class="form-group mb-0 d-flex align-items-center justify-content-center">
         <%= f.input :content, label: false, placeholder: "Escribe tu mensaje...", input_html: { class: "form-control me-2", style: "min-height: 48px; width: 400px;" } %>
-        <button class="btn btn-primary ms-2 px-4 btn-enviar" type="submit" style="min-height: 48px;">Enviar</button>
+        <%=f.submit "Enviar", class: "btn btn-primary"%> <%= link_to "Volver", patient_path(@chat.patient_id), class:"btn btn-warning" %>
       </div>
     <% end %>
   </div>
 </div>
+<% end %>

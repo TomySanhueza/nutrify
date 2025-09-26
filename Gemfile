@@ -78,3 +78,8 @@ end
 
 # AI Gem
 gem "ruby_llm", "~> 1.6.4"
+
+#Nuevas gemas
+gem "kramdown"
+gem "rouge"
+gem "kramdown-parser-gfm"

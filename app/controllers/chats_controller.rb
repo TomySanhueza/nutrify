@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  before_action :set_patient, only: [:new, :create]
+  before_action :set_patient, only: [:new, :create, :index]
   before_action :set_chat, only: [:show,:destroy]
 
   def index

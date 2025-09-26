@@ -45,5 +45,15 @@
           data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro?" }, 
           class: "btn-eliminar-paciente" %>
     </div>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3"><%= render @chats %></div>
+    <div class="col-9"> 
+      <%= turbo_frame_tag "chat" %>
+    </div>
   </div>
 </div>
+</div>
+
