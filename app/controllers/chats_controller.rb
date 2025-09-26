@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  before_action :set_patient
+  before_action :set_patient, only: [:new, :create]
   before_action :set_chat, only: [:show,:destroy]
 
   def index
@@ -12,15 +12,16 @@ class ChatsController < ApplicationController
   end
 
   def new
-    @chat = @patient.chats.new
+    @chat = Chat.new
+    @patient = Patient.find(params[:patient_id])
   end
   
   def create
-    @chat = Chat.new(chat_params)
+    @chat = Chat.new(title: "Sin título")
     @chat.patient = @patient
     @chat.user = current_user
-    if @chat.save
-      redirect_to patient_chats_path(@patient, @chat), notice: "Chat creado con éxito."
+    if @chat.save!
+      redirect_to @chat, notice: "Chat creado con éxito."
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +39,7 @@ class ChatsController < ApplicationController
   end
 
   def set_chat
-    @chat = @patient.chats.find(params[:id])
+    @chat = Chat.find(params[:id])
   end
 
   def chat_params

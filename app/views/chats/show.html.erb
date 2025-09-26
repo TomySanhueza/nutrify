@@ -1,4 +1,11 @@
-<h1><%= @chat.title %></h1>
-
-<%= link_to "Edit", edit_patient_chat_path(@patient, @chat) %> |
-<%= link_to "Back to Chats", patient_chats_path(@patient) %>
+<div class="chat-form-container mt-4">
+  <h1 class="chats-title mb-4"><%= @chat.title %></h1>
+  <div class="chat-form">
+    <%= simple_form_for [@chat, Message.new] do |f| %>
+      <div class="form-group mb-0 d-flex align-items-center">
+        <%= f.input :content, label: false, placeholder: "Escribe tu mensaje...", input_html: { class: "form-control me-2", style: "min-height: 48px;" } %>
+        <button class="btn btn-primary ms-2 px-4" type="submit" style="min-height: 48px;">Enviar</button>
+      </div>
+    <% end %>
+  </div>
+</div>
