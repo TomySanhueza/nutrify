@@ -2,7 +2,7 @@
   <div class="patient-header">
     <h1>Paciente: <%= @patient.first_name %> <%= @patient.last_name %></h1>
     <div class="header-buttons">
-      <%= link_to "Hablar con Asistente de IA", new_patient_chat_path(@patient), class: "btn btn-primary mt-3" %>
+      <%= link_to "Hablar con Asistente de IA", new_patient_chat_path(@patient), class: "btn-asistente-ia" %>
       <%= link_to "Volver a lista", patients_path, class: "btn-volver-lista" %>
     </div>
   </div>
