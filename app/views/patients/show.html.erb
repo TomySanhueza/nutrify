@@ -2,7 +2,6 @@
   <div class="patient-header">
     <h1>Paciente: <%= @patient.first_name %> <%= @patient.last_name %></h1>
     <div class="header-buttons">
-      <%= link_to "Hablar con Asistente de IA", new_patient_chat_path(@patient), class: "btn-asistente-ia" %>
       <%= link_to "Volver a lista", patients_path, class: "btn-volver-lista" %>
     </div>
   </div>
@@ -10,31 +9,31 @@
   <div class="patient-details-card">
     <div class="patient-info">
       <div class="info-item">
-        <span class="info-label">first_name:</span>
+        <span class="info-label">Nombre:</span>
         <span class="info-value"><%= @patient.first_name %></span>
       </div>
       <div class="info-item">
-        <span class="info-label">last_name:</span>
+        <span class="info-label">Apellido:</span>
         <span class="info-value"><%= @patient.last_name %></span>
       </div>
       <div class="info-item">
-        <span class="info-label">birthday:</span>
+        <span class="info-label">Fecha de nacimiento:</span>
         <span class="info-value"><%= @patient.birthday %></span>
       </div>
       <div class="info-item">
-        <span class="info-label">height:</span>
+        <span class="info-label">Altura:</span>
         <span class="info-value"><%= @patient.height %></span>
       </div>
       <div class="info-item">
-        <span class="info-label">weight:</span>
+        <span class="info-label">Peso:</span>
         <span class="info-value"><%= @patient.weight %></span>
       </div>
       <div class="info-item">
-        <span class="info-label">nutrition_plan:</span>
+        <span class="info-label">Plan de nutrición:</span>
         <span class="info-value"><%= @patient.nutrition_plan %></span>
       </div>
       <div class="info-item">
-        <span class="info-label">clinical_history:</span>
+        <span class="info-label">Historia clínica:</span>
         <span class="info-value"><%= @patient.clinical_history %></span>
       </div>
     </div>
@@ -46,14 +45,19 @@
           class: "btn-eliminar-paciente" %>
     </div>
 <hr>
-
-<div class="container">
-  <div class="row">
-    <div class="col-3"><%= render @chats %></div>
-    <div class="col-9"> 
-      <%= turbo_frame_tag "chat" %>
+<div>
+  <h2>Asistente IA</h2>
+  <%= button_to "Activar asistente", chats_path(patient_id: @patient.id), class: "btn-asistente-ia", data: {turbo_frame: "chat"} %>
+  <%= turbo_frame_tag "new_chat" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-3"><%= render @chats %></div>
+      <div class="col-9">
+        <%= turbo_frame_tag "chat" %>
+      </div>
     </div>
   </div>
 </div>
+  </div>
 </div>
 

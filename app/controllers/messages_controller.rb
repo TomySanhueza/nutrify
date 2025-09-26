@@ -15,6 +15,10 @@ class MessagesController < ApplicationController
     @message.role = "user"
     @message.chat_id = @chat.id
     if @message.save
+      if @chat.title == "Sin título"
+        @chat.title = RubyLLM.chat.with_instructions("Dame un resumen de no mas de 3 palabras que me sirvan como título de siguiente mensaje del usuario:").ask(@message.content).content
+        @chat.save
+      end
       build_conversation_history
       response = @ruby_llm_chat.with_instructions(system_prompt).ask(@message.content)
       Message.create(
